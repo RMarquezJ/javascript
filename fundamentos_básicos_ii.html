@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos Básicos II JavaScript</title>
+  </head>
+  <body>
+    <script>
+      //Ejercicio 1 - Dado un array, escribe una función que cambie todos los números positivos en él, por el string “big”.
+      function bigpos(arr){
+      var x=[];
+      for(var i=0; i<arr.length; i++){
+        if(arr[i]>0){
+          x.push('big');
+        }
+        else{
+          x.push(arr[i]);
+        }
+      }
+      return x;
+    }
+    console.log(bigpos([-1,3,5,-5]));
+
+    //Ejercicio 2 -  Crea una función que tome un array de números. La función debería imprimir (print) el menor valor del array, y devolver (return) el mayor.
+    function printRet(arr){
+      var min=arr[0];
+      var max=arr[0];
+      for(var i=0;i<arr.length;i++){
+        if(min>=arr[i]){
+          min=arr[i];
+        }
+        if(max<=arr[i]){
+          max=arr[i];
+        }
+      }
+    console.log(min);
+    return(max);
+    }
+    printRet([1,2,3,4,5,6,7]);
+
+    //Ejercicio 3 - Crea una función para un array de números. La función debería imprimir (print) el penúltimo valor y devolver (return) el primer valor impar.
+    function printRet2(arr){
+      var unev=[];
+      for(var i=0; i<arr.length; i++){
+        if(arr[i]%2!==0){
+          unev.push(arr[i]);
+        }
+      }
+    console.log(arr[arr.length-2]);
+    return(unev[0]);
+    }
+    printRet2([2,4,5,7,8,9]);
+
+    //Ejercicio 4 - Dado un array, crea una función que devuelva un nuevo array donde cada valor se duplique.
+    function double(arr){
+      var x2=[];
+      for(var i=0;i<arr.length;i++){
+        x2.push(arr[i]*2);
+      }
+      return(x2)
+    }
+    double([1,2,3,4]);
+
+    //Ejercicio 5 - Dado un array de números, crea una función para reemplazar el último valor con el número de valores positivos encontrados en el array.
+    function posLast(arr){
+      var ret=arr
+      var pos=[];
+      for (var i=0;i<arr.length;i++){
+        if(arr[i]>0){
+          pos.push(arr[i]);
+        }
+      }
+      ret[arr.length-1]=pos.length;
+      return ret;
+    }
+    posLast([-1,1,1,1]);
+
+    //*** Ejercicio 6 - Crea una función que acepte un array. Cada vez que ese array tenga 3 valores impares seguidos, imprime (print) “¡Qué imparcial!”, y cada vez que tenga 3 pares seguidos, imprime (print) “¡Es para bien!”.
+    function evUnev(arr){
+      var ev=[];
+      var un=[];
+      for (var i=0;i<arr.length;i++){
+        if(arr[i]%2==0){
+          ev.push(arr[i]);
+        }
+        else{
+          ev.pop();
+        }
+      }
+      if (ev.length>2){
+        console.log("¡Es para bien!");
+      }
+      for (var j=0;j<arr.length;j++){
+        if(arr[j]%2!==0){
+          un.push(arr[i]);  
+        }
+        else{
+          un.pop();
+        }
+      }
+      if(un.length>2){
+        console.log("¡Qué imparcial!");
+      }
+    }
+    evUnev([2,2,2,5,4,3])
+
+    //Ejercicio 7 - Dado un array de números arr, agrega 1 a cualquier otro elemento, específicamente a aquellos cuyo índice es impar (arr[1], arr[3], arr[5], etc). Luego, console.log cada valor del array y devuelve arr.
+    function addUnev(arr){
+      var x=[];
+      for (var i=0;i<arr.length;i++){
+        if(i%2!==0){
+          x.push(arr[i]+1);
+          console.log(arr[i]+1);
+        }
+        else{
+          x.push(arr[i]);
+          console.log(arr[i]);
+        }
+      }
+      return x;
+    }
+    addUnev([1,1,2,2,3,3,4,4,5,5]);
+
+    //*** Ejercicio 8 - Dado un array que contiene strings, reemplaza cada string con un número de acuerdo cantidad de letras (longitud) del string anterior.
+    function lastLenght(arr){
+      var x=[];
+      for(var i=arr.length-1;i=0;i--){
+        if(i>0){
+          x.unshift(arr[i-1].length);
+        }
+        else{
+          x.unshift(arr[i]);
+        }
+      }
+      return x;
+    }
+    lastLenght(['programador', 'dojo', 'genial']);
+
+    
+    </script>
+  </body>
+</html>
